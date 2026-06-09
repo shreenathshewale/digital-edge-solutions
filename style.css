@@ -37,6 +37,12 @@
   padding: 0;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -48,7 +54,6 @@ body {
   background-color: var(--color-white);
   color: var(--color-text-dark);
   line-height: 1.6;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1625,7 +1630,7 @@ ul {
   .nav-menu {
     position: fixed;
     top: var(--header-height);
-    right: -100%; /* Initially hidden off-screen to the right */
+    left: 0; /* Align with viewport left */
     width: 100%;
     height: calc(100vh - var(--header-height));
     background-color: var(--color-white);
@@ -1639,10 +1644,11 @@ ul {
     z-index: 1050;
     overflow-y: auto; /* Prevent menu overflow by scrolling vertically */
     box-shadow: 0 10px 15px rgba(10, 35, 72, 0.05) inset;
+    transform: translateX(100%); /* Hardware-accelerated off-screen position */
   }
   
   .nav-menu.active {
-    transform: translateX(-100%); /* Hardware-accelerated smooth slide in */
+    transform: translateX(0); /* Hardware-accelerated smooth slide in */
   }
   
   .nav-link {
@@ -1884,6 +1890,27 @@ ul {
   .badge {
     font-size: 0.75rem;
     padding: 6px 12px;
+  }
+
+  .floating-btn {
+    bottom: 16px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .floating-call {
+    left: 16px;
+  }
+
+  .floating-whatsapp {
+    right: 16px;
+  }
+
+  .back-to-top {
+    bottom: 84px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
   }
 }
 
